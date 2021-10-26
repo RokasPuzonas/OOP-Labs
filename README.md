@@ -1,4 +1,4 @@
-# Introduction example project
+# Lab1 example project
 
 This project is from the "Object oriented programming" course in KTU.
 
