@@ -57,6 +57,10 @@ namespace Lab3.Exercises.Register
 
         public void Insert(int index, Dog dog)
         {
+            if (Count == Capacity)
+            {
+                EnsureCapacity(Capacity * 2);
+            }
             for (int i = Count+1; i > index; i--)
             {
                 dogs[i] = dogs[i-1];
