@@ -132,7 +132,7 @@ namespace Lab2.TouristInformationCenter
         /// <returns>Register containing museums from all files</returns>
         public static MuseumsRegister ReadMuseums(params string[] filenames)
         {
-            MuseumsRegister mainRegister = new MuseumsRegister(l);
+            MuseumsRegister mainRegister = new MuseumsRegister();
             foreach (string filename in filenames)
             {
                 if (filename.EndsWith(".csv"))
@@ -199,14 +199,14 @@ namespace Lab2.TouristInformationCenter
                 return;
             }
 
-            Console.WriteLine(new string('-', 115));
-            Console.WriteLine("| {0,20} | {1,-10} | {2,20} | {3,-10} | {4,-18} | {5,-3} | {6,-4} |", "Vardas", "Miestas", "Atsakingas", "Tipas", "Darbo dienų kiekis", "Kaina", "Turi gidą?");
-            Console.WriteLine(new string('-', 115));
+            Console.WriteLine(new string('-', 120));
+            Console.WriteLine("| {0,-20} | {1,-10} | {2,-20} | {3,-10} | {4,18} | {5,10} | {6,-4} |", "Vardas", "Miestas", "Atsakingas", "Tipas", "Darbo dienų kiekis", "Kaina", "Turi gidą?");
+            Console.WriteLine(new string('-', 120));
             foreach (Museum m in museums)
             {
-                Console.WriteLine("| {0,20} | {1,-10} | {2, 20} | {3,-10} | {4,-18} | {5,-5:f2} | {6,-10} |", m.Name, m.City, m.Manager, m.Type, m.Workdays.Count, m.Price, m.HasGuide ? "Taip" : "Ne");
+                Console.WriteLine("| {0,-20} | {1,-10} | {2,-20} | {3,-10} | {4,18} | {5,10:f2} | {6,-10} |", m.Name, m.City, m.Manager, m.Type, m.Workdays.Count, m.Price, m.HasGuide ? "Taip" : "Ne");
             }
-            Console.WriteLine(new string('-', 115));
+            Console.WriteLine(new string('-', 120));
         }
 
         /// <summary>

@@ -78,7 +78,7 @@ namespace Lab2.TouristInformationCenter
         /// Find museum that work the most days in a week
         /// </summary>
         /// <returns>Most active museum</returns>
-        private static Museum FindMostActiveMuseum()
+        private Museum FindMostActiveMuseum()
         {
             if (AllMuseums.Count == 0)
             {
