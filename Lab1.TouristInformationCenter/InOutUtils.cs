@@ -100,14 +100,14 @@ namespace Lab1.TouristInformationCenter
                 return;
             }
 
-            Console.WriteLine(new string('-', 97));
-            Console.WriteLine("| {0,20} | {1,-15} | {2,-10} | {3,-18} | {4,-3} | {5,-4} |", "Vardas", "Miestas", "Tipas", "Darbo dienų kiekis", "Kaina", "Turi gidą?");
-            Console.WriteLine(new string('-', 97));
+            Console.WriteLine(new string('-', 100));
+            Console.WriteLine("| {0,-20} | {1,-15} | {2,-10} | {3,18} | {4,8} | {5,-4} |", "Vardas", "Miestas", "Tipas", "Darbo dienų kiekis", "Kaina", "Turi gidą?");
+            Console.WriteLine(new string('-', 100));
             foreach (Museum m in museums)
             {
-                Console.WriteLine("| {0,20} | {1,-15} | {2,-10} | {3,-18} | {4,-5:f2} | {5,-10} |", m.Name, m.City, m.Type, m.Workdays.Count, m.Price, m.HasGuide ? "Taip" : "Ne");
+                Console.WriteLine("| {0,-20} | {1,-15} | {2,-10} | {3,18} | {4,8:f2} | {5,-10} |", m.Name, m.City, m.Type, m.Workdays.Count, m.Price, m.HasGuide ? "Taip" : "Ne");
             }
-            Console.WriteLine(new string('-', 97));
+            Console.WriteLine(new string('-', 100));
         }
     }
 }
