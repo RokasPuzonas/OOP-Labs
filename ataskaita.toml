@@ -1,0 +1,73 @@
+title = "Objektinis programavimas I (P175B118)"
+
+student_name = "Studento Roko Puzono IF-1/1"
+student_gender = "male"
+
+professor_name = "lekt. Fyleris Tautvydas"
+professor_gender = "male"
+
+tests_folder = "tests"
+
+# Laboratoriniai
+
+[[sections]]
+title = "Duomenų klasė"
+project = "Lab1/Lab1.TouristInformationCenter"
+problem = """
+Turistų informacijos centras. Turite turistų informacijos centro pateiktus duomenis apie Lietuvoje veikiančius muziejus. Duomenų faile pateikta ši informacija: pavadinimas, miestas, tipas, 7 savaitės dienos (1 – darbo, 0 – nedarbo), bilieto kaina, požymis „turi gidą“.
+
+* Raskite, ar yra muziejų, kurie yra nemokami ir turi gidus. Atspausdinkite ekrane suskaičiuotą kiekį ir pilną informaciją apie šiuos muziejus.
+* Į ekraną atspausdinkite miestus, kuriame bent vienas muziejus dirba daugiau, nei 5 dienas per savaitę.
+* Sudarykite muziejų, nesančių didžiuosiuose Lietuvos miestuose (Vilniuje, Kaune, Klaipėdoje) sąrašą, į failą „Atrinkti.csv“ surašykite visus šių muziejų duomenis.
+"""
+
+[[sections]]
+title = "Skaičiavimų klasė"
+project = "Lab2/Lab2.TouristInformationCenter"
+problem = """
+Turistų informacijos centras. Turizmo informacijos centre perorganizuoti ir atskirai surašyti
+duomenys apie dvejuose miestuose veikiančius muziejus. Keičiasi duomenų formatas. Pirmoje eilutėje - miestas, antroje – atsakingo asmens vardas ir pavardė. Toliau informacija apie muziejus pateikta tokiu pačiu formatu kaip L1 užduotyje, tik nebėra miesto stulpelio.
+
+* Raskite muziejų, kuris dirba daugiausia savaitės dienų. Atspausdinkite ekrane visus jo duomenis. Jei yra keli, spausdinkite visus.
+* Suskaičiuokite, kuriame mieste yra daugiau muziejų, turinčių gidus, rezultatą atspausdinkite ekrane.
+* Sudarykite visų dailės muziejų, kurie dirba ne mažiau kaip 4 dienas per savaitę, sąrašą. Į failą „Dailė.csv“ įrašykite miestus, muziejų pavadinimus, darbo dienas, ir įėjimo kainą.
+"""
+
+[[sections]]
+title = "Konteineris"
+project = "Lab3/Lab3.TouristInformationCenter"
+problem = """
+Turistų informacijos centras. Turizmo informacijos centre perorganizuoti ir atskirai surašyti duomenys apie dvejuose miestuose veikiančius muziejus. Keičiasi duomenų formatas. Pirmoje eilutėje – miestas, antroje – atsakingo asmens vardas ir pavardė. Toliau informacija apie muziejus pateikta tokiu pačiu formatu kaip L1 užduotyje, tik nebėra miesto stulpelio.
+
+* Raskite, ar kiekviename mieste yra muziejų, kurie yra nemokami ir turi gidus, ekrane atspausdinkite miesto pavadinimą ir „Taip“ arba „Ne“.
+* Raskite muziejų, kuris dirba daugiausia savaitės dienų. Atspausdinkite ekrane visus jo duomenis. Jei yra keli, spausdinkite visus.
+* Sudarykite miestų muziejų, kurių pavadinimai sutampa, sąrašą ir įrašykite jų duomenis į failą „Sutampa.csv“.
+* Sudarykite visų dailės muziejų sąrašą. Surikiuokite muziejus pagal miestus ir pavadinimus bei rezultatus įrašykite į failą „Dailė.csv“. 
+"""
+
+[[sections]]
+title = "Teksto analizė ir redagavimas"
+problem = """
+Tekstiniame faile Knyga.txt duotas tekstas sudarytas iš žodžių, atskirtų skyrikliais. Skyriklių aibė žinoma.
+Raskite ir spausdinkite faile Rodikliai.txt:
+
+* ilgiausią (didžiausias žodžių kiekis) teksto fragmentą, sudarytą iš žodžių, kur žodžio paskutinė raidė sutampa su kito žodžio pirmąja raide (tarp didžiųjų ir mažųjų raidžių skirtumo nedaryti) ir juos skiriančių skyriklių, bei jo eilutės numerius;
+* Žodžių, kuriuos sudaro tik skaitmenys, kiekį. Suskaičiuokite tokių skaičių bendrą sumą.
+"""
+
+[[sections]]
+title = "Paveldėjimas"
+problem = """
+Turizmo informacijos centre perorganizuoti ir atskirai surašyti
+duomenys apie trijuose miestuose veikiančius muziejus. Pirmoje eilutėje – miestas, antroje – atsakingo
+asmens vardas ir pavardė. Turizmo informacijos centras teikia informaciją apie lankytinus muziejus ir
+nacionalinius parkus. Sukurkite klasę „Location“ (savybės - pavadinimas, adresas, metai), kurią paveldės
+klasės „Museum” (savybės – tipas, 7 savaitės dienos (1 – darbo, 0 – nedarbo), požymis „turi gidą“, bilieto
+kaina) ir „Statue” (savybės – autorius, paminklo pavadinimas).
+
+* Suskaičiuokite, kiek lankytinų vietų turi gidus, rezultatą atspausdinkite ekrane.
+* Raskite, kokio tipo lankytinas vietas galima aplankyti kiekviename mieste savaitgaliais, ir atspausdinkite jų tipus ekrane.
+* Sudarykite paminklų sąrašą, kurių autorius nurodomas, įvedant iš klaviatūros. Surikiuokite jį pagal pavadinimą ir adresą. Į failą „PaminklaiAutorius.csv“ išveskite rezultatus, pateikdami pavadinimą, adresą, metus, autorių, paminklo pavadinimą.
+* Sudarykite lankytinų vietų, kurios buvo pastatytos po Lietuvos nepriklausomybės atkūrimo (po 1990 m.) sąrašą. Į failą „Po1990.csv“ įrašykite visus lankytinos vietos duomenis. 
+"""
+

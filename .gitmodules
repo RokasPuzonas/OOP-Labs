@@ -1,0 +1,15 @@
+[submodule "Lab1"]
+	path = Lab1
+	url = git@github.com:RokasPuzonas/OOP-Lab1.git
+[submodule "Lab2"]
+	path = Lab2
+	url = git@github.com:RokasPuzonas/OOP-Lab2.git
+[submodule "Lab3"]
+	path = Lab3
+	url = git@github.com:RokasPuzonas/OOP-Lab3.git
+[submodule "Lab4"]
+	path = Lab4
+	url = git@github.com:RokasPuzonas/OOP-Lab4.git
+[submodule "Introduction"]
+	path = Introduction
+	url = git@github.com:RokasPuzonas/OOP-Introduction.git
