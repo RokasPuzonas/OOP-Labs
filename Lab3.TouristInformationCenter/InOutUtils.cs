@@ -185,15 +185,15 @@ namespace Lab3.TouristInformationCenter
                 return;
             }
 
-            Console.WriteLine(new string('-', 115));
-            Console.WriteLine("| {0,20} | {1,-10} | {2,20} | {3,-10} | {4,-18} | {5,-3} | {6,-4} |", "Vardas", "Miestas", "Atsakingas", "Tipas", "Darbo dienų kiekis", "Kaina", "Turi gidą?");
-            Console.WriteLine(new string('-', 115));
+            Console.WriteLine(new string('-', 123));
+            Console.WriteLine("| {0,-20} | {1,-10} | {2,-20} | {3,-10} | {4,18} | {5,13} | {6,-4} |", "Vardas", "Miestas", "Atsakingas", "Tipas", "Darbo dienų kiekis", "Kaina", "Turi gidą?");
+            Console.WriteLine(new string('-', 123));
             for (int i = 0; i < container.Count; i++)
             {
                 Museum m = container.Get(i);
-                Console.WriteLine("| {0,20} | {1,-10} | {2, 20} | {3,-10} | {4,-18} | {5,-5:f2} | {6,-10} |", m.Name, m.City, m.Manager, m.Type, m.Workdays.Count, m.Price, m.HasGuide ? "Taip" : "Ne");
+                Console.WriteLine("| {0,-20} | {1,-10} | {2,-20} | {3,-10} | {4,18} | {5,13:f2} | {6,-10} |", m.Name, m.City, m.Manager, m.Type, m.Workdays.Count, m.Price, m.HasGuide ? "Taip" : "Ne");
             }
-            Console.WriteLine(new string('-', 115));
+            Console.WriteLine(new string('-', 123));
         }
 
         /// <summary>
