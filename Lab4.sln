@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.1525
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab4.RemoveLines", "Lab4.RemoveLines\Lab4.RemoveLines.csproj", "{5309D21D-2A14-4332-90EC-504AD89CE397}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab4.RemoveComments", "Lab4.RemoveComments\Lab4.RemoveComments.csproj", "{4D9B08C9-5735-4C95-8D2A-BDFC888B1E68}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab4.LetterFrequency", "Lab4.LetterFrequency\Lab4.LetterFrequency.csproj", "{F1797B5C-1541-4821-9485-7C3520C5DD8D}"
 EndProject
 Global

@@ -1,0 +1,18 @@
+void DuomenysInternet(Grybai & grybai)
+{
+ ifstream fd(u2);
+// string pav, tip;
+// GrybasInfo s1;
+ int ns = 0;
+ bool yra = true;
+ while(!fd.eof() && yra) { // kol yra duomenų ir jie telpa į masyvą
+ fd >> pav >> tip;
+ s1.Dėti (pav, tip);
+ if(!fd.eof() && (ns - 1 < Grybai::CMax ) )
+ grybai[ns++] = s1; // įrašo naują elementą
+ else
+ yra = false;
+ }
+ fd.close();
+ grybai.Dėti(ns);
+}
