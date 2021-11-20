@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace Lab4.Raides
+namespace Lab4.LetterFrequency
 {
     static class InOut
     {

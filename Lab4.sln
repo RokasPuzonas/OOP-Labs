@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.1525
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab4.Raides", "Lab4.Raides\Lab4.Raides.csproj", "{1966BAA5-C5E8-4F18-A1CB-69A0B2FFD5CE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab4.LetterFrequency", "Lab4.LetterFrequency\Lab4.LetterFrequency.csproj", "{F1797B5C-1541-4821-9485-7C3520C5DD8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

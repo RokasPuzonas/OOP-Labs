@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Lab4.Raides
+namespace Lab4.LetterFrequency
 {
     class Program
     {

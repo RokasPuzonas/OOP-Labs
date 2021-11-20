@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 
-namespace Lab4.Raides
+namespace Lab4.LetterFrequency
 {
     /** To count letters frequency */
     class LettersFrequency
