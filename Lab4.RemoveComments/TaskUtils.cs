@@ -14,14 +14,39 @@ namespace Lab4.RemoveComments
         {
             List<string> cleanedLines = new List<string>();
 
+						bool multiLineComment = false;
+
             foreach (string line in lines)
             {
-                Match case1 = Regex.Match(line, @"^(.*)//.*$");
-                if (case1.Success)
+								Match case1 = Regex.Match(line, @"^(.*)/\*.*$");
+								Match case2 = Regex.Match(line, @"^.*\*/(.*)$");
+                Match case3 = Regex.Match(line, @"^(.*)//.*$");
+
+								if (case1.Success)
+								{
+									if (!multiLineComment) {
+										multiLineComment = true;
+										if (case1.Groups[1].Value.Length > 0)
+										{
+												cleanedLines.Add(case1.Groups[1].Value);
+										}
+									}
+								}
+								else if (case2.Success)
+								{
+									if (multiLineComment) {
+										multiLineComment = false;
+										if (case2.Groups[1].Value.Length > 0)
+										{
+												cleanedLines.Add(case2.Groups[1].Value);
+										}
+									}
+								}
+								else if (case3.Success)
                 {
-                    if (case1.Groups[1].Value.Length > 0)
+                    if (case3.Groups[1].Value.Length > 0)
                     {
-                        cleanedLines.Add(case1.Groups[1].Value);
+                        cleanedLines.Add(case3.Groups[1].Value);
                     }
                 }
                 else
@@ -30,35 +55,7 @@ namespace Lab4.RemoveComments
                 }
             }
             
-            /*
-            Match case1 = Regex.Match(line, @"^(.*)//.*$");
-            if (case1.Success)
-            {
-                newLine = case1.Groups[1].Value;
-                return true;
-            }
-            */
-
             return cleanedLines.ToArray();
-
-            /*
-            Match case2 = Regex.Match(line, @"^$");
-            if (case2.Success)
-            {
-                newLine = case2.Captures[1].Value;
-                return true;
-            }
-            */
-
-       
-            /*newLine = line;
-            for (int i = 0; i < line.Length - 1; i++)
-            if (line[i] == '/' && line[i + 1] == '/')
-            {
-                newLine = line.Remove(i);
-                return true;
-            }
-            return false;*/
         }
     }
 }
