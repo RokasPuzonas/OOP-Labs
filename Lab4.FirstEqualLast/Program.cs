@@ -8,7 +8,7 @@ namespace Lab4.FirstEqualLast
 		public static void Main(string[] args)
 		{
 			const string CFd = "Duomenys.txt";
-			char [] punctuation = {' ','.',',','!','?',':',';','(',')','\t'};
+			string punctuation = "[\\s,.;:!?()\\-]+";
 			Console.WriteLine("Sutampančių žodžių {0, 3:d}", TaskUtils.Process(CFd, punctuation));
 		}
 	}
