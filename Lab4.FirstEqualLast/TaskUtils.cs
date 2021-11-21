@@ -27,7 +27,7 @@ namespace Lab4.FirstEqualLast
 			@param punctuation – punctuation marks to separate words */
 		private static int FirstEqualLast (string line, string punctuation)
 		{
-			string[] parts = Regex.Split(line, punctuation);
+			string[] parts = Regex.Split(line.ToLower(), punctuation);
 			int equal = 0;
 			foreach (string word in parts)
 				if(word.Length > 0) // empty words at the end of line
@@ -56,8 +56,7 @@ namespace Lab4.FirstEqualLast
 			@param punctuation – punctuation marks to separate words */
 		private static int FirstEqualLast (string line, char[] punctuation)
 		{
-			string[] parts = line.Split(punctuation,
-			StringSplitOptions.RemoveEmptyEntries);
+			string[] parts = line.ToLower().Split(punctuation, StringSplitOptions.RemoveEmptyEntries);
 			int equal = 0;
 			foreach (string word in parts)
 				if (word[0] == word[word.Length - 1])
