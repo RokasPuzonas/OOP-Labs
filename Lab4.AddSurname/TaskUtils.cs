@@ -11,8 +11,9 @@ namespace Lab4.AddSurname
 		 @param name – word to find
 		 @param surname – given word to add
 		 @param newLine – string of result */
-		private static void AddSurname(string line, string punctuation, string name, string surname, StringBuilder newLine)
+		private static string AddSurname(string line, string punctuation, string name, string surname)
 		{
+			StringBuilder newLine = new StringBuilder();
 			string addLine = " " + line + " ";
 			int init = 1;
 			int ind = addLine.IndexOf(name);
@@ -21,12 +22,15 @@ namespace Lab4.AddSurname
 				if (punctuation.IndexOf(addLine[ind - 1]) != -1 && punctuation.IndexOf(addLine[ind + name.Length]) != -1)
 				{
 					newLine.Append(addLine.Substring(init, ind + name.Length - init));
+					newLine.Append(" ");
 					newLine.Append(surname);
 					init = ind + name.Length;
 				}
 				ind = addLine.IndexOf(name, ind + 1);
 			}
 			newLine.Append(line.Substring(init - 1));
+
+			return newLine.ToString();
 		}
 
 		/** Reads file and adds given surname to the given name.
@@ -42,8 +46,7 @@ namespace Lab4.AddSurname
 			{
 				foreach (string line in lines)
 				{
-					StringBuilder newLine = new StringBuilder();
-					AddSurname(line, punctuation, name, surname, newLine);
+					string newLine = AddSurname(line, punctuation, name, surname);
 					writer.WriteLine(newLine);
 				}
 			}
