@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab4.FirstEqualLast", "Lab4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab4.AddSurname", "Lab4.AddSurname\Lab4.AddSurname.csproj", "{F7EFA186-AD5D-4E5D-B405-9ACBAEDB7BF3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab4.RemoveVowels", "Lab4.RemoveVowels\Lab4.RemoveVowels.csproj", "{5AD87F42-DD6D-4ADF-B1D5-66553BAA4BCC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{F7EFA186-AD5D-4E5D-B405-9ACBAEDB7BF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7EFA186-AD5D-4E5D-B405-9ACBAEDB7BF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7EFA186-AD5D-4E5D-B405-9ACBAEDB7BF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AD87F42-DD6D-4ADF-B1D5-66553BAA4BCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AD87F42-DD6D-4ADF-B1D5-66553BAA4BCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AD87F42-DD6D-4ADF-B1D5-66553BAA4BCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AD87F42-DD6D-4ADF-B1D5-66553BAA4BCC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
