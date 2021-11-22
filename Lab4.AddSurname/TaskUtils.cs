@@ -1,4 +1,5 @@
 using System.Text;
+using System.Text.RegularExpressions;
 using System.IO;
 
 namespace Lab4.AddSurname
@@ -39,7 +40,7 @@ namespace Lab4.AddSurname
 		 @param punctuation – punctuation marks to separate words
 		 @param name – word to find
 		 @param surname – given word to add */
-		public static void Process(string fin, string fout, string punctuation, string name, string surname)
+		public static void ProcessAddSurname(string fin, string fout, string punctuation, string name, string surname)
 		{
 			string[] lines = File.ReadAllLines(fin, Encoding.UTF8);
 			using (var writer = File.CreateText(fout))
@@ -48,6 +49,27 @@ namespace Lab4.AddSurname
 				{
 					string newLine = AddSurname(line, punctuation, name, surname);
 					writer.WriteLine(newLine);
+				}
+			}
+		}
+
+		public static string RemoveWord(string line, string punctuation, string word)
+		{
+			string pattern = String.Format(@"([{0}]*){1}[{0}]*", Regex.Unescape(punctuation), Regex.Unescape(word));
+			return Regex.Replace(line, pattern, "$1");
+		}
+
+		public static void ProcessRemoveWord(string fin, string fout, string punctuation, string word)
+		{
+			using (StreamWriter writer = File.CreateText(fout))
+			{
+				using (StreamReader reader = new StreamReader(fin))
+				{
+					string? line = String.Empty;
+					while ((line = reader.ReadLine()) != null) 
+					{
+						writer.WriteLine(RemoveWord(line, punctuation, word));
+					}
 				}
 			}
 		}

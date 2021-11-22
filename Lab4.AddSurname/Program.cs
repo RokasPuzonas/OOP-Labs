@@ -10,7 +10,8 @@ namespace Lab4.AddSurname
 			string punctuation = " .,!?:;()\t'";
 			string name = "Arvydas";
 			string surname = "Sabonis";
-			TaskUtils.Process(CFd, CFr, punctuation, name, surname);
+			TaskUtils.ProcessAddSurname(CFd, CFr, punctuation, name, surname);
+			/* TaskUtils.ProcessRemoveWord(CFd, CFr, punctuation, name); */
 		}
 	}
 }
