@@ -55,8 +55,8 @@ namespace Lab4.AddSurname
 
 		public static string RemoveWord(string line, string punctuation, string word)
 		{
-			string pattern = String.Format(@"([{0}]*){1}[{0}]*", Regex.Unescape(punctuation), Regex.Unescape(word));
-			return Regex.Replace(line, pattern, "$1");
+            string pattern = string.Format(@"(^|[{0}]+){1}($|[{0}]+)", Regex.Escape(punctuation), Regex.Escape(word));
+            return Regex.Replace(line, pattern, "$1");
 		}
 
 		public static void ProcessRemoveWord(string fin, string fout, string punctuation, string word)
@@ -65,7 +65,7 @@ namespace Lab4.AddSurname
 			{
 				using (StreamReader reader = new StreamReader(fin))
 				{
-					string? line = String.Empty;
+					string line = string.Empty;
 					while ((line = reader.ReadLine()) != null) 
 					{
 						writer.WriteLine(RemoveWord(line, punctuation, word));
