@@ -9,17 +9,35 @@ namespace Lab4.ChainedWords
 {
     static class TaskUtils
     {
+        /// <summary>
+        /// Return anything that matches a word in given text, depending on punctuation
+        /// </summary>
+        /// <param name="text">Target text</param>
+        /// <param name="punctuation">Target punctuation</param>
+        /// <returns>Word matches</returns>
         private static MatchCollection MatchByWords(string text, string punctuation)
         {
             string pattern = string.Format(@"[^{0}\n]+", Regex.Escape(punctuation));
             return Regex.Matches(text, pattern, RegexOptions.IgnoreCase);
         }
 
+        /// <summary>
+        /// Return anything that matches a positive integer in text
+        /// </summary>
+        /// <param name="text">Target text</param>
+        /// <returns>Integer matches</returns>
         private static MatchCollection MatchByIntegers(string text)
         {
             return Regex.Matches(text, @"\d+");
         }
 
+        /// <summary>
+        /// Find all chains of words in given text. A chain is a sequence of words where every words
+        /// last letter matches the next words first letter. And split the text into words using punctuation
+        /// </summary>
+        /// <param name="text">Target text</param>
+        /// <param name="punctuation">Target punctuation</param>
+        /// <returns>A list of chains with line number where it was found</returns>
         public static List<Tuple<int, string>> FindChains(string text, string punctuation)
         {
             List<Tuple<int, string>> chains = new List<Tuple<int, string>>();
@@ -59,6 +77,11 @@ namespace Lab4.ChainedWords
             return chains;
         }
 
+        /// <summary>
+        /// Find all positive integers in given text
+        /// </summary>
+        /// <param name="text">Target text</param>
+        /// <returns>List of positive integers</returns>
         public static List<int> FindIntegers(string text)
         {
             List<int> integers = new List<int>();
@@ -72,6 +95,12 @@ namespace Lab4.ChainedWords
             return integers;
         }
 
+        /// <summary>
+        /// Finds the longest chain in the given text, while using given punctuation to determine words.
+        /// </summary>
+        /// <param name="text">Target text</param>
+        /// <param name="punctuation">Target punctuation</param>
+        /// <returns></returns>
         public static Tuple<int, string> FindLongestChain(string text, string punctuation)
         {
             List<Tuple<int, string>> chains = FindChains(text, punctuation);
@@ -93,6 +122,14 @@ namespace Lab4.ChainedWords
             return longestChain;
         }
 
+        /// <summary>
+        /// Ouput to file:
+        /// * longest chain and where it was found
+        /// * sum of all positive integers
+        /// </summary>
+        /// <param name="inputFile">Input file</param>
+        /// <param name="outputFile">Output file</param>
+        /// <param name="punctuation">Target punctuation</param>
         public static void ProcessChains(string inputFile, string outputFile, string punctuation)
         {
             string text = File.ReadAllText(inputFile, Encoding.UTF8);
@@ -114,18 +151,12 @@ namespace Lab4.ChainedWords
             }
         }
 
-        private static IEnumerable<string> ReadByLines(string filename)
-        {
-            string line;
-            using (StreamReader reader = new StreamReader(filename))
-            {
-                while((line = reader.ReadLine()) != null)
-                {
-                    yield return line;
-                }
-            }
-        }
-
+        /// <summary>
+        /// Align every word in a line by columns
+        /// </summary>
+        /// <param name="inputFile">Input file</param>
+        /// <param name="outputFile">Output file</param>
+        /// <param name="punctuation">Target punctuation</param>
         public static void ProcessAligned(string inputFile, string outputFile, string punctuation)
         {
             string pattern = string.Format(@"[^{0}]+[{0}]*", Regex.Escape(punctuation));
@@ -133,7 +164,7 @@ namespace Lab4.ChainedWords
             Dictionary<int, int> columns = new Dictionary<int, int>();
             List<List<string>> words = new List<List<string>>();
 
-            foreach (string line in ReadByLines(inputFile))
+            foreach (string line in InOut.ReadByLines(inputFile))
             {
                 List<string> row = new List<string>();
                 words.Add(row);
