@@ -35,23 +35,13 @@ namespace Lab4.K2
 
         public static string FindWord1Line(string line, string punctuation)
         {
-            List<Match> wordsWith3Vowels = new List<Match>();
-
+            Match longestWord = null;
             foreach (Match match in MatchByWords(line, punctuation))
             {
                 int vowelCount = NumberDifferentVowelsInLine(match.Value);
-                if (vowelCount == 3)
+                if (vowelCount == 3 && (longestWord == null || longestWord.Groups[1].Length < match.Groups[1].Length))
                 {
-                   wordsWith3Vowels.Add(match);
-                }
-            }
-
-            Match longestWord = null;
-            foreach (Match word in wordsWith3Vowels)
-            {
-                if (word.Groups[1].Length > longestWord.Groups[1].Length)
-                {
-                    longestWord = word;
+                   longestWord = match;
                 }
             }
 
