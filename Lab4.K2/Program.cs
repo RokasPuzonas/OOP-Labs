@@ -29,33 +29,40 @@ namespace Lab4.K2
         // Note: returns words including punctuation after them
         public static MatchCollection MatchByWords(string line, string punctuation)
         {
-            string pattern = string.Format(@"[^{0}]+[{0}]*", Regex.Escape(punctuation));
+            string pattern = string.Format(@"([^{0}]+)[{0}]*", Regex.Escape(punctuation));
             return Regex.Matches(line, pattern);
         }
 
         public static string FindWord1Line(string line, string punctuation)
         {
-            List<string> wordsWith3Vowels = new List<string>();
+            List<Match> wordsWith3Vowels = new List<Match>();
 
             foreach (Match match in MatchByWords(line, punctuation))
             {
                 int vowelCount = NumberDifferentVowelsInLine(match.Value);
                 if (vowelCount == 3)
                 {
-                   wordsWith3Vowels.Add(match.Value);
+                   wordsWith3Vowels.Add(match);
                 }
             }
 
-            string longestWord = "";
-            foreach (string word in wordsWith3Vowels)
+            Match longestWord = null;
+            foreach (Match word in wordsWith3Vowels)
             {
-                if (word.Length > longestWord.Length)
+                if (word.Groups[1].Length > longestWord.Groups[1].Length)
                 {
                     longestWord = word;
                 }
             }
 
-            return longestWord;
+            if (longestWord == null)
+            {
+                return "";
+            }
+            else
+            {
+                return longestWord.Value;
+            }
         }
 
         public static string EditLine(string line, string punctuation, string word)
