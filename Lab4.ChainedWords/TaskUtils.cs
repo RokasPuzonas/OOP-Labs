@@ -114,8 +114,61 @@ namespace Lab4.ChainedWords
             }
         }
 
-        public static void ProcessAligned(string input, string ouput, string punctuation)
+        private static IEnumerable<string> ReadByLines(string filename)
         {
+            string line;
+            using (StreamReader reader = new StreamReader(filename))
+            {
+                while((line = reader.ReadLine()) != null)
+                {
+                    yield return line;
+                }
+            }
+        }
+
+        public static void ProcessAligned(string inputFile, string outputFile, string punctuation)
+        {
+            string pattern = string.Format(@"[^{0}]+[{0}]*", Regex.Escape(punctuation));
+            string text = File.ReadAllText(inputFile, Encoding.UTF8);
+            Dictionary<int, int> columns = new Dictionary<int, int>();
+            List<List<string>> words = new List<List<string>>();
+
+            foreach (string line in ReadByLines(inputFile))
+            {
+                List<string> row = new List<string>();
+                words.Add(row);
+                int column = 0;
+                foreach (Match match in Regex.Matches(line, pattern))
+                {
+                    string word = match.Value.TrimEnd('\n');
+                    row.Add(word);
+                    if (!columns.ContainsKey(column))
+                    {
+                        columns.Add(column, 0);
+                    }
+                    columns[column] = Math.Max(columns[column], word.Length);
+                    column++;
+                }
+            }
+
+            using (StreamWriter writer = new StreamWriter(outputFile))
+            {
+                foreach (List<string> row in words)
+                {
+                    int column = 0;
+                    for (int i = 0; i < row.Count; i++)
+                    {
+                        string word = row[i];
+                        writer.Write(word);
+                        if (i < row.Count-1)
+                        {
+                            writer.Write(new string(' ', columns[column]-word.Length));
+                        }
+                        column++;
+                    }
+                    writer.Write("\n");
+                }
+            }
         }
     }
 }

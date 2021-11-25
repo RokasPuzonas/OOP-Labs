@@ -1,7 +1,4 @@
-Vienas QRSs!!?SABC V ABC
-.
-CEF FEG GOF
-
-QRS SABC
-
-
+Reikia teksto žodžius sulygiuoti, kad kiekvienos eilutės kiekvienas žodis
+prasidėtų fiksuotoje toje pačioje pozicijoje. Galima įterpti tik minimalų
+būtiną tarpų skaičių. Reikia šalinti iš pradinio teksto kelis iš eilės einančius
+vienodus skyriklius, paliekant tik vieną jų atstovą. Įterpimo taisyklę taikome,
