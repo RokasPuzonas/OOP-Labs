@@ -14,9 +14,16 @@ namespace Lab4.K2
 
         public static int NumberDifferentVowelsInLine(string line)
         {
-            string vowels = "AEIYOUaeiyouĄąĘęĖėĮįŲųŪū";
-            string pattern = string.Format(@"[{0}]", Regex.Escape(vowels));
-            return Regex.Matches(line, pattern).Count;
+            string vowels = "aeiyouąęėįųū";
+            int count = 0;
+
+            line = line.ToLower();
+            foreach (char vowel in vowels)
+            {
+                count += line.Contains(vowel) ? 1 : 0;
+            }
+
+            return count;
         }
 
         // Note: returns words including punctuation after them
