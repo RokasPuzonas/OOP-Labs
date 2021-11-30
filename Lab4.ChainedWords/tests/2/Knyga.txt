@@ -1,0 +1,8 @@
+Reikia teksto žodžius , kad kiekvienos
+eilutės kiekvienas žodis 100
+prasidėtų fiksuotoje toje pačioje pozicijoje.
+Galima įterpti 12 minimalų
+ABC CDEEEEF FG. Reikia šalinti iš
+pradinio teksto kelis iš eilės einančius
+vienodus 420, paliekant tik vieną
+jų atstovą. FOO OFO OOOOOF
