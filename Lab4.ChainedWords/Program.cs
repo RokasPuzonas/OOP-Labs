@@ -11,7 +11,8 @@ namespace Lab4.ChainedWords
             string output2 = "ManoKnyga.txt";
             string punctuation = " ,.;!?";
             TaskUtils.ProcessChains(input, output1, punctuation);
-            TaskUtils.ProcessAligned(input, output2, punctuation);
+            //TaskUtils.ProcessAligned(input, output2, punctuation);
+            TaskUtils.ProccessVericallyAligned(input, output2, punctuation);
         }
     }
 }

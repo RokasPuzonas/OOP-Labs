@@ -151,6 +151,44 @@ namespace Lab4.ChainedWords
             }
         }
 
+        private static string AlignWordsByColumns(List<List<string>> words, string punctuation)
+        {
+            StringBuilder aligned = new StringBuilder();
+            Dictionary<int, int> columns = new Dictionary<int, int>();
+
+            foreach (List<string> row in words)
+            {
+                int column = 0;
+                foreach (string word in row)
+                {
+                    if (!columns.ContainsKey(column))
+                    {
+                        columns.Add(column, 0);
+                    }
+                    columns[column] = Math.Max(columns[column], word.Length);
+                    column++;
+                }
+            }
+
+            foreach (List<string> row in words)
+            {
+                int column = 0;
+                for (int i = 0; i < row.Count; i++)
+                {
+                    string word = row[i];
+                    aligned.Append(word);
+                    if (i < row.Count - 1)
+                    {
+                        aligned.Append(new string(' ', columns[column] - word.Length));
+                    }
+                    column++;
+                }
+                aligned.Append("\n");
+            }
+
+            return aligned.ToString();
+        }
+
         /// <summary>
         /// Align every word in a line by columns
         /// </summary>
@@ -161,45 +199,50 @@ namespace Lab4.ChainedWords
         {
             string pattern = string.Format(@"[^{0}]+[{0}]*", Regex.Escape(punctuation));
             string text = File.ReadAllText(inputFile, Encoding.UTF8);
-            Dictionary<int, int> columns = new Dictionary<int, int>();
             List<List<string>> words = new List<List<string>>();
 
             foreach (string line in InOut.ReadByLines(inputFile))
             {
                 List<string> row = new List<string>();
                 words.Add(row);
-                int column = 0;
                 foreach (Match match in Regex.Matches(line, pattern))
                 {
-                    string word = match.Value.TrimEnd('\n');
-                    row.Add(word);
-                    if (!columns.ContainsKey(column))
-                    {
-                        columns.Add(column, 0);
-                    }
-                    columns[column] = Math.Max(columns[column], word.Length);
-                    column++;
+                    row.Add(match.Value.TrimEnd('\n'));
                 }
             }
 
-            using (StreamWriter writer = new StreamWriter(outputFile))
+            File.WriteAllText(outputFile, AlignWordsByColumns(words, punctuation));
+        }
+
+        /// <summary>
+        /// Align every line by columns and print words vertically
+        /// </summary>
+        /// <param name="inputFile">Input file</param>
+        /// <param name="outputFile">Output file</param>
+        /// <param name="punctuation">Punctuation</param>
+        public static void ProccessVericallyAligned(string inputFile, string outputFile, string punctuation)
+        {
+            string pattern = string.Format(@"[^{0}]+[{0}]*", Regex.Escape(punctuation));
+            string text = File.ReadAllText(inputFile, Encoding.UTF8);
+            List<List<string>> words = new List<List<string>>();
+
+            foreach (string line in InOut.ReadByLines(inputFile))
             {
-                foreach (List<string> row in words)
+                int column = 0;
+                int row = 0;
+                foreach (Match match in Regex.Matches(line, pattern))
                 {
-                    int column = 0;
-                    for (int i = 0; i < row.Count; i++)
+                    if (words.Count <= row)
                     {
-                        string word = row[i];
-                        writer.Write(word);
-                        if (i < row.Count-1)
-                        {
-                            writer.Write(new string(' ', columns[column]-word.Length));
-                        }
-                        column++;
+                        words.Add(new List<string>());
                     }
-                    writer.Write("\n");
+                    words[row].Add(match.Value.TrimEnd('\n'));
+                    row++;
                 }
+                column++;
             }
+
+            File.WriteAllText(outputFile, AlignWordsByColumns(words, punctuation));
         }
     }
 }
