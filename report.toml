@@ -14,8 +14,7 @@ tests_folder = "tests"
 title = "Duomenų klasė"
 project = "Lab1/Lab1.TouristInformationCenter"
 problem = """
-**U1-20. Turistų informacijos centras.**
-Turistų informacijos centras. Turite turistų informacijos centro pateiktus
+U1-20. Turistų informacijos centras. Turistų informacijos centras. Turite turistų informacijos centro pateiktus
 duomenis apie Lietuvoje veikiančius muziejus. Duomenų faile pateikta ši informacija:
 pavadinimas, miestas, tipas, 7 savaitės dienos (1 – darbo, 0 – nedarbo), bilieto kaina,
 požymis „turi gidą“.
@@ -32,8 +31,7 @@ Klaipėdoje) sąrašą, į failą „Atrinkti.csv“ surašykite visus šių muz
 title = "Skaičiavimų klasė"
 project = "Lab2/Lab2.TouristInformationCenter"
 problem = """
-**U2-20. Turistų informacijos centras.**
-Turistų informacijos centras. Turizmo informacijos centre perorganizuoti ir atskirai
+U2-20. Turistų informacijos centras. Turistų informacijos centras. Turizmo informacijos centre perorganizuoti ir atskirai
 surašyti duomenys apie dvejuose miestuose veikiančius muziejus. Keičiasi duomenų
 formatas. Pirmoje eilutėje - miestas, antroje – atsakingo asmens vardas ir pavardė.
 Toliau informacija apie muziejus pateikta tokiu pačiu formatu kaip L1 užduotyje, tik
@@ -52,8 +50,7 @@ ir įėjimo kainą.
 title = "Konteineris"
 project = "Lab3/Lab3.TouristInformationCenter"
 problem = """
-**U3-20. Turistų informacijos centras.**
-Turistų informacijos centras. Turizmo informacijos centre perorganizuoti ir atskirai
+U3-20. Turistų informacijos centras. Turistų informacijos centras. Turizmo informacijos centre perorganizuoti ir atskirai
 surašyti duomenys apie dvejuose miestuose veikiančius muziejus.  Keičiasi duomenų
 formatas. Pirmoje eilutėje – miestas, antroje – atsakingo asmens vardas ir pavardė.
 Toliau informacija apie muziejus pateikta tokiu pačiu formatu kaip L1 užduotyje,
@@ -73,8 +70,7 @@ pavadinimus bei rezultatus įrašykite į failą „Dailė.csv“.
 title = "Teksto analizė ir redagavimas"
 project = "Lab4/Lab4.ChainedWords"
 problem = """
-**U4H-20. Skaičių suma**
-Tekstiniame faile Knyga.txt duotas tekstas sudarytas iš žodžių, atskirtų skyrikliais.
+U4H-20. Skaičių suma. Tekstiniame faile Knyga.txt duotas tekstas sudarytas iš žodžių, atskirtų skyrikliais.
 Skyriklių aibė žinoma. Raskite ir spausdinkite faile Rodikliai.txt:
 
 * ilgiausią (didžiausias žodžių kiekis) teksto fragmentą, sudarytą iš žodžių,
@@ -82,11 +78,13 @@ kur žodžio paskutinė raidė sutampa su kito žodžio pirmąja raide (tarp did
 mažųjų raidžių skirtumo nedaryti) ir juos skiriančių skyriklių, bei jo eilutės numerius;
 * Žodžių, kuriuos sudaro tik skaitmenys, kiekį. Suskaičiuokite tokių skaičių bendrą sumą.
 
+
 Reikia teksto žodžius sulygiuoti, kad kiekvienos eilutės kiekvienas žodis prasidėtų
 fiksuotoje toje pačioje pozicijoje. Galima įterpti tik minimalų būtiną tarpų skaičių.
 Reikia šalinti iš pradinio teksto kelis iš eilės einančius vienodus skyriklius,
 paliekant tik vieną jų atstovą. Įterpimo taisyklę taikome, siekdami gauti lygiuotą
 minimalų tekstą. Pradinio teksto eilutės ilgis neviršija 80 simbolių.
+
 
 Spausdinkite faile ManoKnyga.txt pertvarkytą tekstą pagal tokias taisykles:
 * kiekvienos eilutės pirmasis žodis turi prasidėti pozicijoje p1=1.
@@ -102,8 +100,7 @@ baigiasi iki p3-2 arba p3-1.
 [[sections]]
 title = "Paveldėjimas"
 problem = """
-**U5-20. Turistų informacijos centras.**
-Turizmo informacijos centre perorganizuoti ir atskirai surašyti
+U5-20. Turistų informacijos centras. Turizmo informacijos centre perorganizuoti ir atskirai surašyti
 duomenys apie trijuose miestuose veikiančius muziejus. Pirmoje eilutėje – miestas,
 antroje – atsakingo asmens vardas ir pavardė. Turizmo informacijos centras teikia
 informaciją apie lankytinus muziejus ir nacionalinius parkus. Sukurkite klasę "Location"
