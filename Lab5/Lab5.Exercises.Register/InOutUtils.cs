@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -46,6 +46,10 @@ namespace Lab5.Exercises.Register
                     case "CAT":
                         Cat cat = new Cat(id, name, breed, birthDate, gender);
                         animals.Add(cat);
+                        break;
+                    case "GUINEA_PIG":
+                        GuineaPig guineaPig = new GuineaPig(id, name, breed, birthDate, gender);
+                        animals.Add(guineaPig);
                         break;
                     default:
                         break;//unknown type
