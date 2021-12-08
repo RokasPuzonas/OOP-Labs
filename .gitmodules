@@ -10,6 +10,3 @@
 [submodule "Lab5"]
 	path = Lab4
 	url = git@github.com:RokasPuzonas/OOP-Lab5.git
-[submodule "Introduction"]
-	path = Introduction
-	url = git@github.com:RokasPuzonas/OOP-Introduction.git
