@@ -26,7 +26,7 @@ namespace Lab4.RemoveLines
                 }
             }
             return No;
-        }        public static List<int> LongestLines(string fin)
+        }        public static List<int> LongestLines(string fin)
         {
             List<int> lines = new List<int>();
             int longestLength = 0;
@@ -52,7 +52,7 @@ namespace Lab4.RemoveLines
             }
 
             return lines;
-        }        public static void RemoveLine(string fin, string fout, int No)
+        }        public static void RemoveLine(string fin, string fout, int No)
         {
             using (StreamReader reader = new StreamReader(fin, Encoding.UTF8))
             {
