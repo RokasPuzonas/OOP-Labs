@@ -1,0 +1,8 @@
+Reikia teksto žodžius sulygiuoti, kad 33
+eilutės 1 žodis
+prasidėtų fiksuotoje toje pačioje pozicijoje.
+Galima įterpti tik minimalų 22
+būtiną tarpų 111. Reikia šalinti iš
+pradinio teksto kelis iš eilės einančius
+vienodus skyriklius, paliekant tik vieną
+jų atstovą. Įterpimo taisyklę 44,
