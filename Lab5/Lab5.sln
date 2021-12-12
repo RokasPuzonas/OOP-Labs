@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.1525
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab5.Exercises.Register", "Lab5.Exercises.Register\Lab5.Exercises.Register.csproj", "{47BEC004-9D86-465A-9331-B525D8517FA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab5.Exercises.Register", "Lab5.Exercises.Register\Lab5.Exercises.Register.csproj", "{47BEC004-9D86-465A-9331-B525D8517FA5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab5.Sport", "Lab5.Sport\Lab5.Sport.csproj", "{0644A0A7-0F28-4566-AA58-1DFD1AF25D6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab5.TouristInformationCenter", "Lab5.TouristInformationCenter\Lab5.TouristInformationCenter.csproj", "{29EFA044-DDF8-4674-8060-36CF3661D825}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{47BEC004-9D86-465A-9331-B525D8517FA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47BEC004-9D86-465A-9331-B525D8517FA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47BEC004-9D86-465A-9331-B525D8517FA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0644A0A7-0F28-4566-AA58-1DFD1AF25D6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0644A0A7-0F28-4566-AA58-1DFD1AF25D6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0644A0A7-0F28-4566-AA58-1DFD1AF25D6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0644A0A7-0F28-4566-AA58-1DFD1AF25D6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29EFA044-DDF8-4674-8060-36CF3661D825}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29EFA044-DDF8-4674-8060-36CF3661D825}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29EFA044-DDF8-4674-8060-36CF3661D825}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29EFA044-DDF8-4674-8060-36CF3661D825}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
