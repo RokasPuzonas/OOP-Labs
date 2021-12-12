@@ -1,24 +1,19 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace Lab5.TouristInformationCenter
 {
     /// <summary>
     /// Class used for storing data related a single museum.
     /// </summary>
-    class Museum
+    class Location : Location
     {
-        public string Name { get; set; }
-        public string City { get; set; }
-        public string Manager { get; set; }
         public string Type { get; set; }
         public List<Weekday> Workdays { get; set; }
         public double Price { get; set; }
         public bool HasGuide { get; set; }
-        public Museum(string name, string city, string manager, string type, List<Weekday> workdays, double price, bool hasGuide)
+
+        public Location(string name, string city, string address, int year, string manager, string type, List<Weekday> workdays, double price, bool hasGuide) : base(name, city, address, year, manager)
         {
-            Name = name;
-            Manager = manager;
-            City = city;
             Type = type;
             Workdays = workdays;
             Price = price;

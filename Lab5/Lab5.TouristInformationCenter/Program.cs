@@ -8,12 +8,25 @@ namespace Lab5.TouristInformationCenter
         static void Main(string[] args)
         {
             // Read all museums from initial data files
-            MuseumsContainer container = InOutUtils.ReadMuseums("MuseumsKaunas.csv", "MuseumsVilnius.csv");
-            MuseumsRegister register = new MuseumsRegister(container);
-            Console.WriteLine("Visi muziejai:");
-            InOutUtils.PrintMuseums(register);
+            LocationsContainer container = InOutUtils.ReadLocations("LocationsKaunas.csv", "LocationsVilnius.csv", "LocationsAlytus.csv");
+            Register register = new Register(container);
+            Console.WriteLine("Visos vietos:");
+            InOutUtils.PrintLocations(register);
             Console.WriteLine();
 
+            int locationCount = register.CountLocationsThatHaveGuides();
+            Console.WriteLine("Lankytinų vietų skaičius kurie turi gidus: {0}", locationCount);
+            Console.WriteLine();
+
+            List<string> types = register.FindCommonTypesWithGuidesAtWeekends();
+            Console.Write("Lankytinų vietų tipai kuriouse galima apsilankyti visuose miestuose savaitgaliais:");
+            foreach (string type in types)
+            {
+                Console.WriteLine("* {0}", type);
+            }
+            Console.WriteLine();
+
+            /*
             // Write out a list of cities and if they have at least one museum that is free and with a guide
             List<string> cities = register.GetAllCities();
             foreach (string city in cities)
@@ -41,6 +54,7 @@ namespace Lab5.TouristInformationCenter
             MuseumsContainer artMuseums = register.FilterByType("Dailė");
             artMuseums.Sort();
             InOutUtils.WriteMuseums("Dailė.csv", artMuseums);
+            */
         }
     }
 }
