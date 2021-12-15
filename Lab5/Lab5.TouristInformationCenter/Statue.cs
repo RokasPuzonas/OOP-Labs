@@ -5,7 +5,7 @@ namespace Lab5.TouristInformationCenter
         public string Author { get; set; }
         public string MonumentName { get; set; }
 
-        public Statue(string name, string city, string address, int year, string manager, string author, string monumentName) : base(name, city, address, year, manager)
+        public Statue(string city, string manager, string name, string address, int year, string author, string monumentName) : base(city, manager, name, address, year)
         {
             Author = author;
             MonumentName = monumentName;

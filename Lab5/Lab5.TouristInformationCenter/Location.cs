@@ -3,19 +3,19 @@ namespace Lab5.TouristInformationCenter
 {
     abstract class Location
     {
-        public string Name { get; set; }
         public string City { get; set; }
+        public string Manager { get; set; }
+        public string Name { get; set; }
         public string Address { get; set; }
         public int Year { get; set; }
-        public string Manager { get; set; }
 
-        public Location(string name, string city, string address, int year, string manager)
+        public Location(string city, string manager, string name, string address, int year)
         {
-            Name = name;
             City = city;
+            Manager = manager;
+            Name = name;
             Address = address;
             Year = year;
-            Manager = manager;
         }
 
         public int CompareTo(Location other)

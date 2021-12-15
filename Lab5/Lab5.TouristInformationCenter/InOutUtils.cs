@@ -37,22 +37,39 @@ namespace Lab5.TouristInformationCenter
             for (int i = 2; i < lines.Count; i++)
             {
                 string line = lines[i];
-                string[] values = line.Split(';');
-                /* string name = values[0]; */
-                /* string type = values[1]; */
-                /* List<Weekday> workdays = new List<Weekday>(); */
-                /* for (int j = 1; j <= 7; j++) */
-                /* { */
-                /*     if (int.Parse(values[j + 1]) == 1) */
-                /*     { */
-                /*         workdays.Add((Weekday)j); */
-                /*     } */
-                /* } */
-                /* double price = double.Parse(values[9]); */
-                /* bool hasGuide = int.Parse(values[10]) == 1; */
+                string[] values = line.Split(';', StringSplitOptions.RemoveEmptyEntries);
+                string name = values[0];
+                string address = values[1];
+                int year = int.Parse(values[2]);
 
-                /* Location location = new Location(name, city, manager, type, workdays, price, hasGuide); */
-                /* container.Add(location); */
+                Location location;
+                if (values.Length == 5)
+                {
+                    string author = values[3];
+                    string monumentName = values[4];
+                    location = new Statue(city, manager, name, address, year, author, monumentName);
+                }
+                else if (values.Length == 13)
+                {
+                    string type = values[3];
+                    List<Weekday> workdays = new List<Weekday>();
+                    for (int j = 1; j <= 7; j++)
+                    {
+                        if (int.Parse(values[j + 3]) == 1)
+                        {
+                            workdays.Add((Weekday)j);
+                        }
+                    }
+                    double price = double.Parse(values[11]);
+                    bool hasGuide = int.Parse(values[12]) == 1;
+                    location = new Museum(city, manager, name, address, year, type, workdays, price, hasGuide);
+                }
+                else
+                {
+                    throw new Exception($"Attempt to parse unknown line: {lines[i]}");
+                }
+
+                container.Add(location);
             }
             return container;
         }
@@ -128,17 +145,28 @@ namespace Lab5.TouristInformationCenter
 
         private static string CreateLocationLine(Location location)
         {
-/*             string workDays = ""; */
-/*             workDays += location.Workdays.Contains(Weekday.Monday) ? "1" : "0"; */
-/*             workDays += location.Workdays.Contains(Weekday.Tuesday) ? ";1" : ";0"; */
-/*             workDays += location.Workdays.Contains(Weekday.Wednesday) ? ";1" : ";0"; */
-/*             workDays += location.Workdays.Contains(Weekday.Thursday) ? ";1" : ";0"; */
-/*             workDays += location.Workdays.Contains(Weekday.Friday) ? ";1" : ";0"; */
-/*             workDays += location.Workdays.Contains(Weekday.Saturday) ? ";1" : ";0"; */
-/*             workDays += location.Workdays.Contains(Weekday.Sunday) ? ";1" : ";0"; */
-/*  */
-/*             return String.Join(";", location.City, location.Name, workDays, location.Price); */
-            return "";
+            if (location is Museum)
+            {
+                Museum m = location as Museum;
+                string workDays = "";
+                workDays += m.Workdays.Contains(Weekday.Monday) ? "1" : "0";
+                workDays += m.Workdays.Contains(Weekday.Tuesday) ? ";1" : ";0";
+                workDays += m.Workdays.Contains(Weekday.Wednesday) ? ";1" : ";0";
+                workDays += m.Workdays.Contains(Weekday.Thursday) ? ";1" : ";0";
+                workDays += m.Workdays.Contains(Weekday.Friday) ? ";1" : ";0";
+                workDays += m.Workdays.Contains(Weekday.Saturday) ? ";1" : ";0";
+                workDays += m.Workdays.Contains(Weekday.Sunday) ? ";1" : ";0";
+                return String.Join(";", m.Name, m.Address, m.Year, m.Type, workDays, m.Price, m.HasGuide ? "1" : "0");
+            }
+            else if (location is Statue)
+            {
+                Statue s = location as Statue;
+                return String.Join(";", s.Name, s.Address, s.Year, s.Author, s.MonumentName);
+            } else
+            {
+                throw new Exception("What you doin??");
+            }
+
         }
 
         /// <summary>
@@ -155,6 +183,26 @@ namespace Lab5.TouristInformationCenter
                 lines[i] = CreateLocationLine(location);
             }
             File.WriteAllLines(filename, lines, Encoding.UTF8);
+        }
+
+        /// <summary>
+        /// Write and encode a list of statues from a container to a file
+        /// </summary>
+        /// <param name="filename">Target file</param>
+        /// <param name="container">Target container</param>
+        public static void WriteStatues(string filename, LocationsContainer container)
+        {
+            using (StreamWriter writer = File.CreateText(filename))
+            {
+                for (int i = 0; i < container.Count; i++)
+                {
+                    Statue statue = container.Get(i) as Statue;
+                    if (statue != null)
+                    {
+                        writer.WriteLine("{0};{1};{2};{3};{4}", statue.Name, statue.Address, statue.Year, statue.Author, statue.MonumentName);
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -186,15 +234,15 @@ namespace Lab5.TouristInformationCenter
                 return;
             }
 
-            Console.WriteLine(new string('-', 123));
-            /* Console.WriteLine("| {0,-20} | {1,-10} | {2,-20} | {3,-10} | {4,18} | {5,13} | {6,-4} |", "Vardas", "Miestas", "Atsakingas", "Tipas", "Darbo dienų kiekis", "Kaina", "Turi gidą?"); */
-            Console.WriteLine(new string('-', 123));
+            Console.WriteLine(new string('-', 84));
+            Console.WriteLine("| {0,-10} | {1,-20} | {2,-18} | {3,-15} | {4,5} |", "Miestas", "Atsakingas", "Vardas", "Adresas", "Metai");
+            Console.WriteLine(new string('-', 84));
             for (int i = 0; i < container.Count; i++)
             {
                 Location l = container.Get(i);
-                /* Console.WriteLine("| {0,-20} | {1,-10} | {2,-20} | {3,-10} | {4,18} | {5,13:f2} | {6,-10} |", l.Name, l.City, l.Manager, l.Type, l.Workdays.Count, l.Price, l.HasGuide ? "Taip" : "Ne"); */
+                Console.WriteLine("| {0,-10} | {1,-20} | {2,-18} | {3,-15} | {4,5} |", l.City, l.Manager, l.Name, l.Address, l.Year);
             }
-            Console.WriteLine(new string('-', 123));
+            Console.WriteLine(new string('-', 84));
         }
 
         /// <summary>

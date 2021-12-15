@@ -53,7 +53,7 @@ namespace Lab5.TouristInformationCenter
             int count = 0;
             for (int i = 0; i < AllLocations.Count; i++)
             {
-                Location museum = AllLocations.Get(i) as Location;
+                Museum museum = AllLocations.Get(i) as Museum;
                 if (museum != null && museum.HasGuide)
                 {
                     count++;
@@ -85,7 +85,7 @@ namespace Lab5.TouristInformationCenter
             List<string> types = new List<string>();
             for (int i = 0; i < AllLocations.Count; i++)
             {
-                Location museum = AllLocations.Get(i) as Location;
+                Museum museum = AllLocations.Get(i) as Museum;
                 if (museum != null && !types.Contains(museum.Type))
                 {
                     types.Add(museum.Type);
@@ -105,10 +105,11 @@ namespace Lab5.TouristInformationCenter
                 {
                     for (int i = 0; i < AllLocations.Count; i++)
                     {
-                        Location museum = AllLocations.Get(i) as Location;
+                        Museum museum = AllLocations.Get(i) as Museum;
                         if (museum != null && museum.Type == type && museum.City == city)
                         {
                             types[type]++;
+                            break;
                         }
                     }
                 }
@@ -130,7 +131,7 @@ namespace Lab5.TouristInformationCenter
             for (int i = 0; i < AllLocations.Count; i++)
             {
                 Museum museum = AllLocations.Get(i) as Museum;
-                if (museum != null && museum.Type == type && museum.HasGuide)
+                if (museum != null && museum.Type == type && museum.HasGuide && (museum.Workdays.Contains(Weekday.Saturday) || museum.Workdays.Contains(Weekday.Sunday)))
                 {
                     return true;
                 }
@@ -178,106 +179,5 @@ namespace Lab5.TouristInformationCenter
             }
             return locations;
         }
-
-        /*
-        /// <summary>
-        /// Return a list of active locations from the register.
-        /// A location is considered active if it is working at least some amount a week.
-        /// </summary>
-        /// <param name="threshold">Threshold which determines what is active</param>
-        /// <returns>A list of active locations</returns>
-        public LocationsContainer FilterByActiveLocations(int threshold)
-        {
-            return AllLocations.FilterByActivity(threshold);
-        }
-
-        /// <summary>
-        /// Find location that work the most days in a week
-        /// </summary>
-        /// <returns>Most active location</returns>
-        public Location FindMostActiveLocation()
-        {
-            if (AllLocations.Count == 0)
-            {
-                return null;
-            }
-
-            Location mostActive = AllLocations.Get(0);
-            for (int i = 0; i < AllLocations.Count; i++)
-            {
-                Location location = AllLocations.Get(i);
-                if (location.Workdays.Count > mostActive.Workdays.Count)
-                {
-                    mostActive = location;
-                }
-            }
-            return mostActive;
-        }
-
-        /// <summary>
-        /// Find all locations that work the most days in a week
-        /// </summary>
-        /// <returns></returns>
-        public LocationsContainer FindMostActiveLocations()
-        {
-            Location mostActive = FindMostActiveLocation();
-            LocationsContainer activeLocations = new LocationsContainer();
-            for (int i = 0; i < AllLocations.Count; i++)
-            {
-                Location location = AllLocations.Get(i);
-                if (location.Workdays.Count == mostActive.Workdays.Count)
-                {
-                    activeLocations.Add(location);
-                }
-            }
-            return activeLocations;
-        }
-
-        /// <summary>
-        /// Filter by property "Type".
-        /// </summary>
-        /// <param name="type">Target type</param>
-        /// <returns>A filtered container of locations</returns>
-        public LocationsContainer FilterByType(string type)
-        {
-            return AllLocations.FilterByType(type);
-        }
-
-        private List<string> GetLocationNames()
-        {
-            List<string> result = new List<string>();
-            for (int i = 0; i < AllLocations.Count; i++)
-            {
-                Location location = AllLocations.Get(i);
-                if (!result.Contains(location.Name))
-                {
-                    result.Add(location.Name);
-                }
-            }
-            return result;
-        }
-
-        /// <summary>
-        /// Find all locations that have matching names
-        /// </summary>
-        /// <returns>A container with locations that have matching names</returns>
-        public LocationsContainer FindLocationsWithDuplicateNames()
-        {
-            LocationsContainer result = new LocationsContainer();
-            List<string> names = GetLocationNames();
-            foreach (string name in names)
-            {
-                LocationsContainer locationsByName = AllLocations.FilterByName(name);
-                if (locationsByName.Count <= 1) continue;
-
-                for (int i = 0; i < locationsByName.Count; i++)
-                {
-                    result.Add(locationsByName.Get(i));
-                }
-            }
-            return result;
-        }
-        */
-
     }
 }
