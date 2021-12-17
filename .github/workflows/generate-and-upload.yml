@@ -14,13 +14,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Generate report
-      uses: RokasPuzonas/ktu-oop-report-generator@v1.0.1
+      uses: RokasPuzonas/ktu-oop-report-generator@v1.0.2
       with:
         dotnet-version: 3.0.103
         config-filename: report.toml
         output-filename: report.pdf
     - name: Upload report
-      uses: RokasPuzonas/ktu-moodle-assignment-upload@v1.0.0
+      uses: RokasPuzonas/ktu-moodle-assignment-upload@v1.0.3
       with:
         assignment-id: 1499
         target-filename: report.pdf
