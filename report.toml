@@ -1,10 +1,7 @@
 title = "Objektinis programavimas I (P175B118)"
 
-student_name = "Studento Roko Puzono IF-1/1"
-student_gender = "male"
-
-professor_name = "lekt. Fyleris Tautvydas"
-professor_gender = "male"
+student = { name = "Studento Roko Puzono IF-1/1", gender = "male" }
+lecturer = { name = "lekt. Fyleris Tautvydas", gender = "male" }
 
 tests_folder = "tests"
 
@@ -99,6 +96,7 @@ baigiasi iki p3-2 arba p3-1.
 
 [[sections]]
 title = "Paveldėjimas"
+project = "Lab5/Lab5.TouristInformationCenter"
 problem = """
 U5-20. Turistų informacijos centras. Turizmo informacijos centre perorganizuoti ir atskirai surašyti
 duomenys apie trijuose miestuose veikiančius muziejus. Pirmoje eilutėje – miestas,
