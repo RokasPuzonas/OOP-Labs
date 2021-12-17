@@ -27,7 +27,6 @@ namespace Lab5.TouristInformationCenter
 
             Console.Write("Įveskite norimą autorius: ");
             string inputAuthor = Console.ReadLine();
-            Console.WriteLine("Received: {0}", inputAuthor);
             LocationsContainer locationsByAuthor = register.FindLocationsByAuthor(inputAuthor);
             locationsByAuthor.Sort(new LocationsComparatorByNameAddress());
             InOutUtils.WriteStatues("PaminklaiAutorius.csv", locationsByAuthor);
