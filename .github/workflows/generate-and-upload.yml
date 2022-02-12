@@ -8,15 +8,15 @@ env:
 
 on:
   workflow_dispatch:
-  push:
-    branches: [ main ]
-    paths:
-      - 'report.toml'
-      - 'Lab1/Lab1.TouristInformationCenter/**'
-      - 'Lab2/Lab2.TouristInformationCenter/**'
-      - 'Lab3/Lab3.TouristInformationCenter/**'
-      - 'Lab4/Lab4.TouristInformationCenter/**'
-      - 'Lab5/Lab5.TouristInformationCenter/**'
+  # push:
+  #   branches: [ main ]
+  #   paths:
+  #     - 'report.toml'
+  #     - 'Lab1/Lab1.TouristInformationCenter/**'
+  #     - 'Lab2/Lab2.TouristInformationCenter/**'
+  #     - 'Lab3/Lab3.TouristInformationCenter/**'
+  #     - 'Lab4/Lab4.TouristInformationCenter/**'
+  #     - 'Lab5/Lab5.TouristInformationCenter/**'
 
 jobs:
   generate-and-upload:
@@ -45,4 +45,3 @@ jobs:
         upload-filename: ${{ env.MOODLE_FILENAME }}
         ktu-username: ${{ secrets.KTU_USERNAME }}
         ktu-password: ${{ secrets.KTU_PASSWORD }}
-
